@@ -88,14 +88,16 @@ function initWebglOverlayView(map: google.maps.Map): void {
         let source2 = "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF/Duck.gltf";
 
         if((iter) % 2 == 0) source2 =  "https://raw.githubusercontent.com/googlemaps/js-samples/main/assets/pin.gltf";
+    if(iter <= 2)
     loader.load(source2, (gltf) => {
-      gltf.scene.scale.set(5, 5, 15);
-     // gltf.scene.rotation.x = Math.PI; // Rotations are in radians.
+
+      gltf.scene.scale.set(15, 15, 15);
+      gltf.scene.rotation.x = Math.PI; // Rotations are in radians.
       scene.add(gltf.scene);
     });
 
 
-
+        console.log(renderer.info.render);
   // Rotate the map 360 degrees.
         if (mapOptions.tilt < 67.5) {
           mapOptions.tilt += 0.5;
